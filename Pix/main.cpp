@@ -67,15 +67,6 @@ int main() {
         for (int x = 0; x < GB_WIDTH; ++x) {
             int index = y * GB_WIDTH + x;
             frameBuffer[index] = plasmaGen(x,y,iTime);
-            /*
-            // Divide by 8 to group into 8x8 pixel blocks
-            bool isDarkSquare = ((x / 16) + (y / 16)) % 2 == 0;
-            
-            if (isDarkSquare) {
-                frameBuffer[index] = color4B{30, 70, 30, 255};   // Retro Dark Green
-            } else {
-                frameBuffer[index] = color4B{140, 180, 20, 255}; // Retro Light Green
-            }**/
         }
     }
 
@@ -86,15 +77,6 @@ int main() {
             for (int x = 0; x < GB_WIDTH; ++x) {
                 int index = y * GB_WIDTH + x;
                 frameBuffer[index] = plasmaGen(x,y,iTime);
-                
-                // Divide by 8 to group into 8x8 pixel blocks
-                bool isDarkSquare = ((x / 16) + (y / 16)) % 2 == 0;
-                
-                if (isDarkSquare) {
-                    //frameBuffer[index] = color4B{30, 70, 30, 255};   // Retro Dark Green
-                } else {
-                    //frameBuffer[index] = plasmaGen(x,y,iTime); // Retro Light Green
-                }
             }
         }
         WindowBridge::updateFramebuffer(frameBuffer.data());
